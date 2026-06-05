@@ -25,58 +25,98 @@
       </div>
     </div>
 
-    <form class="form-card">
+    <form class="form-card" (ngSubmit)="registrarSolicitud()">
+
       <h2>Datos del paquete turístico</h2>
 
       <div class="campo">
         <label>Destino</label>
-        <input type="text" placeholder="Ejemplo: Ica, Nazca, Paracas">
+        <input
+          type="text"
+          name="destino"
+          [(ngModel)]="solicitud.destino"
+          placeholder="Ejemplo: Ica, Nazca, Paracas">
       </div>
 
       <div class="grid">
         <div class="campo">
           <label>Número de personas</label>
-          <input type="number" placeholder="Ejemplo: 4">
+          <input
+            type="number"
+            name="numeroPersonas"
+            [(ngModel)]="solicitud.numeroPersonas">
         </div>
 
         <div class="campo">
           <label>Ciudad de partida</label>
-          <input type="text" placeholder="Ejemplo: Lima">
+          <input
+            type="text"
+            name="ciudadPartida"
+            [(ngModel)]="solicitud.ciudadPartida"
+            placeholder="Ejemplo: Lima">
         </div>
       </div>
 
       <div class="grid">
         <div class="campo">
           <label>Fecha de salida</label>
-          <input type="date">
+          <input
+            type="date"
+            name="fechaSalida"
+            [(ngModel)]="solicitud.fechaSalida">
         </div>
 
         <div class="campo">
           <label>Hora de salida</label>
-          <input type="time">
+          <input
+            type="time"
+            name="horaSalida"
+            [(ngModel)]="solicitud.horaSalida">
         </div>
       </div>
 
       <div class="grid">
         <div class="campo">
           <label>Fecha de regreso</label>
-          <input type="date">
+          <input
+            type="date"
+            name="fechaRegreso"
+            [(ngModel)]="solicitud.fechaRegreso">
         </div>
 
         <div class="campo">
           <label>Hora de regreso</label>
-          <input type="time">
+          <input
+            type="time"
+            name="horaRegreso"
+            [(ngModel)]="solicitud.horaRegreso">
         </div>
       </div>
 
       <div class="campo">
         <label>Observaciones adicionales</label>
-        <textarea rows="4" placeholder="Indique preferencias, tipo de alojamiento, transporte u otros detalles"></textarea>
+        <textarea
+          rows="4"
+          name="observaciones"
+          [(ngModel)]="solicitud.observaciones"
+          placeholder="Indique preferencias, tipo de alojamiento, transporte u otros detalles">
+        </textarea>
       </div>
 
-      <button type="submit">Registrar solicitud</button>
+      <button type="submit">
+        Registrar solicitud
+      </button>
 
-      <a href="/" class="volver">← Volver al inicio</a>
+      @if (mensaje) {
+        <p class="mensaje">
+          {{ mensaje }}
+        </p>
+      }
+
+      <a href="/" class="volver">
+        ← Volver al inicio
+      </a>
+
     </form>
   </div>
 </section>

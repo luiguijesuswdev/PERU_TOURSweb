@@ -9,35 +9,67 @@
       </p>
     </div>
 
-    <form>
+    <form (ngSubmit)="registrarCliente()">
       <div class="grid">
         <div class="campo">
           <label>Nombres</label>
-          <input type="text" placeholder="Ingrese sus nombres">
+          <input
+            type="text"
+            name="nombres"
+            [(ngModel)]="cliente.nombres"
+            placeholder="Ingrese sus nombres"
+            required
+          >
         </div>
 
         <div class="campo">
           <label>Apellidos</label>
-          <input type="text" placeholder="Ingrese sus apellidos">
+          <input
+            type="text"
+            name="apellidos"
+            [(ngModel)]="cliente.apellidos"
+            placeholder="Ingrese sus apellidos"
+            required
+          >
         </div>
       </div>
 
       <div class="campo">
         <label>Correo electrónico</label>
-        <input type="email" placeholder="correo@ejemplo.com">
+        <input
+          type="email"
+          name="correo"
+          [(ngModel)]="cliente.correo"
+          placeholder="correo@ejemplo.com"
+          required
+        >
       </div>
 
       <div class="campo">
         <label>Teléfono</label>
-        <input type="text" placeholder="999 999 999">
+        <input
+          type="text"
+          name="telefono"
+          [(ngModel)]="cliente.telefono"
+          placeholder="999 999 999"
+          required
+        >
       </div>
 
       <div class="campo">
         <label>Ciudad</label>
-        <input type="text" placeholder="Ejemplo: Lima">
+        <input
+          type="text"
+          name="ciudad"
+          [(ngModel)]="cliente.ciudad"
+          placeholder="Ejemplo: Lima"
+          required
+        >
       </div>
 
       <button type="submit">Registrar afiliación</button>
+
+      @if (mensaje) {<p class="mensaje">{{ mensaje }}</p>}
 
       <a href="/" class="volver">← Volver al inicio</a>
     </form>
